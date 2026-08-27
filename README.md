@@ -1,4 +1,4 @@
-```md
+
 # Nexus
 
 **Nexus checks whether native Node.js dependencies can safely run on a different Node.js runtime — before you run them.**
@@ -193,4 +193,3 @@ The goal is to eventually make Nexus and existing package managers work together
 The current proof of concept has passed adversarial testing on its supported scope, but cross-platform validation and several runtime compatibility axes are still in progress.
 
 Nexus should currently be treated as a research project and compatibility analysis tool, not production dependency infrastructure.
-```
