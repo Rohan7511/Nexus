@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import { readSlices, readImage, readSymbols } from '../../src/artifact/macho-addon.mjs';
+const buf = fs.readFileSync(process.argv[2]);
+const sl = readSlices(buf)[0];
+const img = readImage(buf, sl.base);
+const syms = readSymbols(buf, img);
+console.log('SECT/ext symbols:', syms.filter(s => s.defined && s.external).map(s => s.name));
+const und = syms.filter(s => s.undef).map(s => s.name);
+console.log('UNDF matching node|napi|dl:', und.filter(n => /node|napi|^dl/i.test(n)));
+console.log('total UNDF:', und.length);

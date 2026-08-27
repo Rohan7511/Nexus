@@ -1,0 +1,28 @@
+{
+  "name": "nexus",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Runtime-aware, content-addressed JavaScript dependency installation and resolution",
+  "type": "module",
+  "bin": {
+    "nexus": "bin/nexus.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node test/run.mjs",
+    "regress": "node test/run.mjs && node test/regress-e001.mjs && node test/regress-e005.mjs && node test/regress-e007.mjs && node test/regress-e008.mjs",
+    "e001": "node experiments/e001-napi-extraction/run.mjs",
+    "e002": "node experiments/e002-hooks/hooktest.mjs",
+    "e003": "node experiments/e003-libc/run.mjs",
+    "e005": "node experiments/e005-elf-requirement/run.mjs",
+    "e007": "node experiments/e007-macho/run.mjs",
+    "e008": "node experiments/e008-elf-rawv8/run.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

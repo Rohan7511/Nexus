@@ -1,0 +1,191 @@
+{
+  "graphId": "12170439095b56767d148de06123f1db2943dbae073178fbf661884c063979e4",
+  "lockfileVersion": 1,
+  "packages": [
+    {
+      "files": [
+        {
+          "path": "build/Release/napi10.node",
+          "sha": "a3dcde6dde2df4658dfc0068300d19782e524ba2f9f52c730ab982eb793f3eeb",
+          "size": 103424
+        },
+        {
+          "path": "index.js",
+          "sha": "325c6d71d18da7e9809f8e882e54a67ebd13cfd37be042be28cc3dba2f23bff3",
+          "size": 57
+        },
+        {
+          "path": "package.json",
+          "sha": "8874f21b14751569af447300f503ea8d579b9dc6415a198ae29545c1a69e2d13",
+          "size": 73
+        }
+      ],
+      "name": "addon-napi10",
+      "path": "node_modules/addon-napi10",
+      "sensitive": true,
+      "sensitivity": [
+        "ships 1 native object(s)"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "files": [
+        {
+          "path": "build/Release/napi9.node",
+          "sha": "163e8b1a45a5a5a3e695626689afb20c19bed4e4182c0aa45dcb1ec78293fc24",
+          "size": 103424
+        },
+        {
+          "path": "index.js",
+          "sha": "4a09d2267b754caf7f39da8f707f58914b362884f2b665a7e7254b28cde3e56e",
+          "size": 56
+        },
+        {
+          "path": "package.json",
+          "sha": "499b9ad97d76e7f5082668570730134e53e5e9a397a86ccc420a2234a7f1baa2",
+          "size": 72
+        }
+      ],
+      "name": "addon-napi9",
+      "path": "node_modules/addon-napi9",
+      "sensitive": true,
+      "sensitivity": [
+        "ships 1 native object(s)"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "files": [
+        {
+          "path": "build/Release/rawabi141.node",
+          "sha": "01db0178912b7d66a1e790f49db7f0948422f479360de0af9f9e9171f60d88d9",
+          "size": 120320
+        },
+        {
+          "path": "index.js",
+          "sha": "320e30fb9e02b8e60e6892a2fe68948d3f24c95f0be7c3e3f5686e17e5ca0e64",
+          "size": 60
+        },
+        {
+          "path": "package.json",
+          "sha": "2ca04843f9ee49e8869d290d305f6966422847a55c598766e59a45f5b4ee0084",
+          "size": 76
+        }
+      ],
+      "name": "addon-rawabi141",
+      "path": "node_modules/addon-rawabi141",
+      "sensitive": true,
+      "sensitivity": [
+        "ships 1 native object(s)"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "files": [
+        {
+          "path": "package.json",
+          "sha": "6c9ea355190dfce3646ad4d2a31c9506de36d884a6461b3655a2a0c4ba3d1695",
+          "size": 1838
+        },
+        {
+          "path": "prebuilds/darwin-arm64.node",
+          "sha": "98e0e8acd01c632fe5615243e1296af0372826f8783b18fc31c506f73c47459c",
+          "size": 1980736
+        },
+        {
+          "path": "prebuilds/darwin-x64.node",
+          "sha": "e6db154afe9d250e242e2ea3d45d273718ab80a0751d08873637553031752d21",
+          "size": 1982880
+        },
+        {
+          "path": "prebuilds/linux-arm64.node",
+          "sha": "8ba771f284dfd9430e3ef8e2ffc373ed7cc5a92fc7c4c0c7baf39dd672863485",
+          "size": 2066328
+        },
+        {
+          "path": "prebuilds/linux-x64.node",
+          "sha": "6fd4292c6c5f352436cd85c9e1cb286978efa43c20ae350973f83414ced9991d",
+          "size": 2226168
+        },
+        {
+          "path": "prebuilds/linuxmusl-arm64.node",
+          "sha": "09d5927246024b6d93c079ae1079554cbdd85790792342bf24636987dce7a786",
+          "size": 2312112
+        },
+        {
+          "path": "prebuilds/linuxmusl-x64.node",
+          "sha": "d661495d2dd4a026ccda893dd8ea1e2c245c3a681bd28224064953c8a9cc0a72",
+          "size": 2435680
+        },
+        {
+          "path": "prebuilds/win32-arm64.node",
+          "sha": "a47870d114b98baecaff0baa51cfb93d6280d43f064280adaadefafb6949f1bf",
+          "size": 1903104
+        },
+        {
+          "path": "prebuilds/win32-x64.node",
+          "sha": "e21e5efd71fba66578e95b62554d9028064a80dafd7221bf8a8ef155de8d240a",
+          "size": 1989632
+        }
+      ],
+      "name": "better-sqlite3",
+      "path": "node_modules/better-sqlite3",
+      "sensitive": true,
+      "sensitivity": [
+        "ships 8 native object(s)"
+      ],
+      "version": "13.0.3"
+    },
+    {
+      "files": [
+        {
+          "path": "binding.gyp",
+          "sha": "6d24982542472bfa7cefa4916c971460e16fc31c985299794d6a3fb92266bf5f",
+          "size": 65
+        },
+        {
+          "path": "index.js",
+          "sha": "312da7e0f2e0e2294ddab5985bdf30bc7a29b69648c959fcebd35b98d8fb3d6e",
+          "size": 52
+        },
+        {
+          "path": "package.json",
+          "sha": "0d316455731f9476dc897247d8e1c089352bb3876f68379185f184e088c911f1",
+          "size": 126
+        }
+      ],
+      "name": "gyp-builder",
+      "path": "node_modules/gyp-builder",
+      "sensitive": true,
+      "sensitivity": [
+        "has install script",
+        "has binding.gyp"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "files": [
+        {
+          "path": "index.js",
+          "sha": "1737ef29ba647e558b55fccbdaebad1b5737bc2528f166d42d062e240a25c766",
+          "size": 21
+        },
+        {
+          "path": "lib/util.js",
+          "sha": "15229ff57b48e1cf67378627903ccd148f7ce7df0f8ea309e4e6718516ddf3a1",
+          "size": 25
+        },
+        {
+          "path": "package.json",
+          "sha": "29e1b15e718181f994502a46b7c34b46d2bd81e9a9ff47bbbdbc29d55aae1604",
+          "size": 69
+        }
+      ],
+      "name": "plain-js",
+      "path": "node_modules/plain-js",
+      "sensitive": false,
+      "sensitivity": [],
+      "version": "1.0.0"
+    }
+  ]
+}

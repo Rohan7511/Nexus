@@ -1,0 +1,4189 @@
+{
+  "runtimes": [
+    {
+      "name": "node22",
+      "exe": "C:\\Users\\arobl_mwxh002\\AppData\\Local\\ms-playwright-go\\1.50.1\\node.exe",
+      "abi": 127,
+      "napi": 9,
+      "version": "v22.13.1",
+      "os": "win32",
+      "arch": "x64"
+    },
+    {
+      "name": "node24",
+      "exe": "C:\\Users\\arobl_mwxh002\\AppData\\Local\\ms-playwright-go\\1.57.0\\node.exe",
+      "abi": 137,
+      "napi": 10,
+      "version": "v24.11.1",
+      "os": "win32",
+      "arch": "x64"
+    },
+    {
+      "name": "node25",
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "abi": 141,
+      "napi": 10,
+      "version": "v25.1.0",
+      "os": "win32",
+      "arch": "x64"
+    }
+  ],
+  "rows": [
+    {
+      "file": "napi10.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 10,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 10,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 3,
+      "label": "native/napi10.node",
+      "sha": "a3dcde6dde2df4658dfc0068300d19782e524ba2f9f52c730ab982eb793f3eeb",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "CRASH(3221225477)"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "napi9.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 9,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 9,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 3,
+      "label": "native/napi9.node",
+      "sha": "163e8b1a45a5a5a3e695626689afb20c19bed4e4182c0aa45dcb1ec78293fc24",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "rawabi141.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "abi-exact",
+          "abi": 141,
+          "source": "nm_version"
+        }
+      ],
+      "class": "raw-v8",
+      "arch": "x64",
+      "nmVersion": 141,
+      "nmMethod": "data-struct-scan(validated)",
+      "nmAmbiguous": null,
+      "label": "native/rawabi141.node",
+      "sha": "01db0178912b7d66a1e790f49db7f0948422f479360de0af9f9e9171f60d88d9",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "sharp-linux-x64-0.35.3.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "lib/sharp-linux-x64-0.35.3.node",
+      "sha": "62ad8a4400d01452a37034e527b3f0849c4d685b33e8acde79abfbcc9fe5bc12",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "ngrok.linux-x64-gnu.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node",
+      "sha": "9e95b240dd7ea23b668b924cc73502c19d152da2760ccdbd35d960dbc234e0ec",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "ngrok.linux-x64-musl.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node",
+      "sha": "33fb08d50d610ce8576bb2273300403cc5654eabe9c342b5c10dda510d5b8259",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "darwin-x64.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "prebuilds/darwin-x64.node",
+      "sha": "466bda6c74c1d67e236fee4f6a0aa5eb0f34a1b4c9f8258e11b2fb38c1b1c849",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linux-x64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linux-x64.node",
+      "sha": "db5e8fe3f7d44381fc9bc8f61f6eada46b82417cc906641930fbc590b09f3444",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linuxmusl-x64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linuxmusl-x64.node",
+      "sha": "b1d6222f33f6277cdd76895af0289848aed3177d4d9b5bd49a9b1326529bfd66",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "win32-x64.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 10,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 10,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 60,
+      "label": "prebuilds/win32-x64.node",
+      "sha": "267c4b26c677c44e2d388a4cf438ba28bf2d2457a800d51dc983ca0696c5c789",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "CRASH(3221225477)"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "keytar.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "Release/keytar.node",
+      "sha": "0700016bcd761cbe02d275f2046c7cc42f39f730a50d66e3d3307aa9d413373a",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "darwin_arm64/koffi.node",
+      "sha": "a9fdbc7c1cb5839823ff2a056e2342f00f3badc7d77a935081076ba8fe8c78eb",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "darwin_x64/koffi.node",
+      "sha": "20509a9dc3024653d1c126b3ab75e60fc36f3eaf74b18ceb72b03627366d0ab3",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_arm64/koffi.node",
+      "sha": "4b031955f3109cac347b863a1c7f8298f4a3ab8255156124b8d34c62780981a2",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_ia32/koffi.node",
+      "sha": "c87808d7f16275377fbfa219f5d317cd56d57b9629e1151a7e96c49fe28472ba",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_x64/koffi.node",
+      "sha": "8a5425a8b0766bdd7ba16b4e0482db1d9592c63a48a6ab40807b30ace12e2a28",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_arm64/koffi.node",
+      "sha": "90865c0ec2dfb6f46e31223d75e0debb4597433a617e18994a4c750892aad9c8",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_armhf/koffi.node",
+      "sha": "5f7747f262b3be039c7a84ed1e197940b9b954ccc99bbbf071083dfd4af41dcd",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_ia32/koffi.node",
+      "sha": "cf644bb068f0ee525ea6fae8f01a5ee1f7bacf23c4b9e066304bd2db07fb82af",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": null,
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_loong64/koffi.node",
+      "sha": "5a579a0704133526653cc5936f1fba933ef1971448e0931ad0dd1569ac844aca",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": null,
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_riscv64d/koffi.node",
+      "sha": "3b50bc55e6819e4443b36524645e93ee22e3c01943cd4b860cb29208b23fa561",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_x64/koffi.node",
+      "sha": "acf3223d57d0ff615005a93bbd15530b2c14571aecc48028566aded11d09cc04",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "musl_arm64/koffi.node",
+      "sha": "b437defdd6b9ebe2a05cdda71094be3daa6a9367dbe4ad37685967075fe43f1a",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "musl_x64/koffi.node",
+      "sha": "4d2db8f4de67d89685bd7c684ceaa3dd404499e7c27dae6eee77441abda863f4",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "openbsd_ia32/koffi.node",
+      "sha": "de86d58ad3288e96283363580a0f9ab539ac5842c13f3da11459e906b79716c4",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "openbsd_x64/koffi.node",
+      "sha": "82b2eec4ecab6e621ddc3a61a734ba901b7a47e8663c12a374356124d0fd9e56",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "arm64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "arm64",
+      "declaredNapi": null,
+      "declaredMethod": "unrecognised-prologue:00018052c0035fd6",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_arm64/koffi.node",
+      "sha": "d4082b440475b1c9e589c8615678cad80ffda0f5eccef124c3880b01d27d2e04",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "ia32",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "ia32",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_ia32/koffi.node",
+      "sha": "4bd58d741b0a0f82040b75b3052f97f4c069a146b96ce94a4343c0cfddf6a60d",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_x64/koffi.node",
+      "sha": "caa2dc3fa7ee2e0615e10052659cdf5ad96a6299cfc118c8d94ed212f53f1c4e",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "x64/onnxruntime_binding.node",
+      "sha": "02f47073236ef20db4c27e1923cd601d21d8ac730a80efb656a7241643ad1e07",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.darwin-arm64.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "rust/wreq-js.darwin-arm64.node",
+      "sha": "a688531fc6df035a2195eed25a4483873e2e3ed8241dffc5834df42712321f24",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.darwin-x64.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "rust/wreq-js.darwin-x64.node",
+      "sha": "4484ff1395ad1731133bffaf43832b94f24f98506a6f8c3ab1fab20d19655b78",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.linux-arm64-gnu.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "rust/wreq-js.linux-arm64-gnu.node",
+      "sha": "11775c76b8252460203b6d729984d96f9d179900716b70d46da5bea0ef1029de",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.linux-arm64-musl.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "rust/wreq-js.linux-arm64-musl.node",
+      "sha": "8109b379b4984529374227625421ae1498a29db211f92dbfd0b08dd5188549ba",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.linux-x64-gnu.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "rust/wreq-js.linux-x64-gnu.node",
+      "sha": "9218f299334ef833149880406cda0a343023f2111d9922463984af010c7550c5",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.linux-x64-musl.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "rust/wreq-js.linux-x64-musl.node",
+      "sha": "47b7af48b61150d691bafa652855c76a976f124ed24fa8deb3b83acccef7b5e6",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "wreq-js.win32-x64-msvc.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 0,
+      "label": "rust/wreq-js.win32-x64-msvc.node",
+      "sha": "ae8efc6ca877f926f515989f069c367f4f70e66476156c9832e848026a530765",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "sharp-win32-x64.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 9,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 9,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 52,
+      "label": "lib/sharp-win32-x64.node",
+      "sha": "afc813593f255968ddae8f1d66557e0f96484bb374606e4eb2267a7dbc7cb25a",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "next-swc.win32-x64-msvc.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 0,
+      "label": "swc-win32-x64-msvc/next-swc.win32-x64-msvc.node",
+      "sha": "4bc2c52b83743c7875cbc7599332834a96355f61835200ba6eb0e3b415e11f8f",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "ngrok.win32-x64-msvc.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 0,
+      "label": "ngrok-win32-x64-msvc/ngrok.win32-x64-msvc.node",
+      "sha": "a4923b1cd0ffd4b85658d0e26b8f131a1ff3eb73abef06c63cdd8f9da06ea0b6",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "watcher.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 4,
+      "napiSymbolCount": 46,
+      "label": "watcher-win32-x64/watcher.node",
+      "sha": "6c26cff1cc989bde1cdb40f49463c6a1612e528ca0cc11ac1594541a1204f4f2",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "swc.win32-x64-msvc.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 0,
+      "label": "core-win32-x64-msvc/swc.win32-x64-msvc.node",
+      "sha": "e499af5d250e148e88cb44bbf121e7de9ad829dae9b6f1102ad78acccb3a7fca",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "darwin-arm64.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "prebuilds/darwin-arm64.node",
+      "sha": "98e0e8acd01c632fe5615243e1296af0372826f8783b18fc31c506f73c47459c",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "darwin-x64.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "prebuilds/darwin-x64.node",
+      "sha": "e6db154afe9d250e242e2ea3d45d273718ab80a0751d08873637553031752d21",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linux-arm64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linux-arm64.node",
+      "sha": "8ba771f284dfd9430e3ef8e2ffc373ed7cc5a92fc7c4c0c7baf39dd672863485",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linux-x64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linux-x64.node",
+      "sha": "6fd4292c6c5f352436cd85c9e1cb286978efa43c20ae350973f83414ced9991d",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linuxmusl-arm64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linuxmusl-arm64.node",
+      "sha": "09d5927246024b6d93c079ae1079554cbdd85790792342bf24636987dce7a786",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "linuxmusl-x64.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "prebuilds/linuxmusl-x64.node",
+      "sha": "d661495d2dd4a026ccda893dd8ea1e2c245c3a681bd28224064953c8a9cc0a72",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "win32-arm64.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "arm64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "arm64",
+      "declaredNapi": null,
+      "declaredMethod": "unrecognised-prologue:40018052c0035fd6",
+      "importFloor": 8,
+      "napiSymbolCount": 60,
+      "label": "prebuilds/win32-arm64.node",
+      "sha": "a47870d114b98baecaff0baa51cfb93d6280d43f064280adaadefafb6949f1bf",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "win32-x64.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 10,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 10,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 60,
+      "label": "prebuilds/win32-x64.node",
+      "sha": "e21e5efd71fba66578e95b62554d9028064a80dafd7221bf8a8ef155de8d240a",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "CRASH(3221225477)"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "keytar.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 42,
+      "label": "Release/keytar.node",
+      "sha": "90e35de89ab5e5f9290e4ff1bbadcf221a82b2aa0d9b922187dc980adff3c831",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "darwin_arm64/koffi.node",
+      "sha": "466cbe3634b0a39305e5ed86a5e9ad9a55f7992795b8eb14008f4c3bea16a3b4",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "darwin_x64/koffi.node",
+      "sha": "597df508ef752f894218202bc4a82ca24300051aa552bb71d2c9a21f15efdf69",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_arm64/koffi.node",
+      "sha": "2034fcf2a62464c01e0cb9d2a607e6c976f53d08892055668198f90a7708bfab",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_ia32/koffi.node",
+      "sha": "09d70d02390f88bb988e53803fc9df0f5faeda8ae0450d90a9c4ebb47fb00bea",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "freebsd_x64/koffi.node",
+      "sha": "ab0f758950646a87549e8b8da3805ab2d2b2a5268d42cedbcae338ba1b907724",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_arm64/koffi.node",
+      "sha": "03d762daa26800a5680481a6798c05d30c3c4764110d6ff70e4bc87822a7f17e",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_armhf/koffi.node",
+      "sha": "9ccf31fd07b63aeac0106e5e3afa920562130d02576c8ce972c1eb3f81fa5e95",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_ia32/koffi.node",
+      "sha": "11eee35e1815d0f34ebda4ecaf08b3db8145b7fb33ca63c8f49b514e4f18b309",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": null,
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_loong64/koffi.node",
+      "sha": "db2b085cce2d1acc3d613acdabeb60e4c8c956cc4b436bad14cd2f88ad24b129",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": null,
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_riscv64d/koffi.node",
+      "sha": "774c1b4548c306bd34b6f248f1a7ea986f0c35501fef5e5b7b533d4ec756592c",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "linux_x64/koffi.node",
+      "sha": "384c2a27faf08b82721613d6880c978716b58edcb81656be787c6b59e9a4134a",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "musl_arm64/koffi.node",
+      "sha": "1e3a184e1926365c3b064daf6778022c7c201999d8b8e96d6ed4b991816ce2ec",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "musl_x64/koffi.node",
+      "sha": "e5402d441ecc624a51465a8b9cfc19eabc3967541f29b1fc203ea8adae3bb641",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "ia32",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "openbsd_ia32/koffi.node",
+      "sha": "7f0c9d3a54241163f9f20f82440cf74140a63ac6f9f98d94d203f7f692bbc4ed",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "openbsd_x64/koffi.node",
+      "sha": "954f079d912eabc5dfbeff6cf55d3897847621b6e3b6071b34629ec226a3f401",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "arm64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "arm64",
+      "declaredNapi": null,
+      "declaredMethod": "unrecognised-prologue:00018052c0035fd6",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_arm64/koffi.node",
+      "sha": "6fee5cff4af6bb5022a4114eefeb8d11892006ff20518cf0925fc428a14a270c",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "ia32"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "ia32",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "ia32",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_ia32/koffi.node",
+      "sha": "050a4a94873783a7842c9d8510c2ff397513af5fed97ce350dd777773277450f",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "koffi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 8,
+      "napiSymbolCount": 85,
+      "label": "win32_x64/koffi.node",
+      "sha": "1305fdf18bcb5e71c1cd0530cd0834b9858beb01606f58086e587343809bfa3b",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "sharp-win32-x64-0.35.3.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 9,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 9,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 53,
+      "label": "lib/sharp-win32-x64-0.35.3.node",
+      "sha": "45dbb968dff27a1e8d8870d2a34e6f5418fa2a1a4fe27a7ed13ab2fb3f895468",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "arm64/onnxruntime_binding.node",
+      "sha": "8ad39fe71b4e4683ae5ae7b5edb8f4d2fb47f58dc139c68a2a14d3977281b9a5",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "x64/onnxruntime_binding.node",
+      "sha": "a87a5f6b21777c733ce3b8cfb45e806d2e72b7331fe80e39fc22cec746dab1af",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "arm64/onnxruntime_binding.node",
+      "sha": "29f5a0b8e5a794736890c8c737592f503269fc00bdac352245b80e983a79bb2d",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "arm64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "arm64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 64,
+      "label": "arm64/onnxruntime_binding.node",
+      "sha": "60668d9f47896692d3336e5520332c4767d3762c55aec40d09561c4d0866603d",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "onnxruntime_binding.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 64,
+      "label": "x64/onnxruntime_binding.node",
+      "sha": "05c102e658b33f0d8294b11ded5a53d4c3266182cf27eee60742e42ddf5c9462",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "node.abi115.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 8,
+      "label": "msgpackr-extract-win32-x64/node.abi115.node",
+      "sha": "300b188fb8c997214cb65bf1b00729da293176c7d57035e40c2f432ea384dd89",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "node.napi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 10,
+      "label": "msgpackr-extract-win32-x64/node.napi.node",
+      "sha": "6958541c624784dfcebfc4f3c360c57f71cfeedd0530c2393845061729081a08",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "audio-capture.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 1,
+      "napiSymbolCount": 0,
+      "label": "x64-win32/audio-capture.node",
+      "sha": "9aae190a785d739604606999dbbba2aa35c0690f7ea2f1ecb18a6f186b2ad899",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "kerberos.node",
+      "container": {
+        "format": "macho-fat",
+        "os": "darwin",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": null,
+          "source": "container=macho-fat"
+        }
+      ],
+      "class": "foreign-macho-fat",
+      "label": "arm64/kerberos.node",
+      "sha": "fdcca42b9123ddc8758c03d1c559b8e2250f399193153e3093a67a8502f84fe8",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "node_sqlite3.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "arm64/node_sqlite3.node",
+      "sha": "bcc9bc7f010bc19e60b07058297f23dff7fbb5e838c8ba43b092f11c504f78eb",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "vscode-policy-watcher.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "arm64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "arm64/vscode-policy-watcher.node",
+      "sha": "ab3863c2cd3ed85747fa4511a0452c3866c8785e9061b3c951b4a4726955f0f3",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "kerberos.node",
+      "container": {
+        "format": "macho-fat",
+        "os": "darwin",
+        "arch": null
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": null,
+          "source": "container=macho-fat"
+        }
+      ],
+      "class": "foreign-macho-fat",
+      "label": "x64/kerberos.node",
+      "sha": "cf28a754b7ba9c4d0aacebb1e562a99dc3289b66afa381e197fc61a1395469bf",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "node_sqlite3.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "x64/node_sqlite3.node",
+      "sha": "a33cc60ee9f95cb1eb3be16b087da501671cd43ae3a2a294cdf0f90eedc65d05",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "vscode-policy-watcher.node",
+      "container": {
+        "format": "macho",
+        "os": "darwin",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "darwin",
+          "arch": "x64",
+          "source": "container=macho"
+        }
+      ],
+      "class": "foreign-macho",
+      "label": "x64/vscode-policy-watcher.node",
+      "sha": "b918dea58410b37b272f2acf82290bcb29ec466939808010cc7c3439cf68d80e",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "kerberos.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "arm64/kerberos.node",
+      "sha": "ad3a64cd9091e411dacb515a0e06f54992062474013637e02c90d132f50a5f18",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "node_sqlite3.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "arm64/node_sqlite3.node",
+      "sha": "a25c139449cd0852f242ce2aacfc04033c629f74566b331d47661eeb507b3dbc",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "vscode-policy-watcher.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "arm64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "arm64/vscode-policy-watcher.node",
+      "sha": "08191514e1b03acd4447be8064cf0f62ad4de3dda501222cdf53cd104b962ece",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "kerberos.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "x64/kerberos.node",
+      "sha": "da2f5513da4b373509df8a09225a431677ac0b96fa697e332cfb6b7aac0c8355",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "node_sqlite3.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "x64/node_sqlite3.node",
+      "sha": "c9bd0419f77efb3b5d3a691fda04e265f740ad8dc195f0b56003cdeac92e9a34",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "vscode-policy-watcher.node",
+      "container": {
+        "format": "elf",
+        "os": "linux",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "linux",
+          "arch": "x64",
+          "source": "container=elf"
+        }
+      ],
+      "class": "foreign-elf",
+      "label": "x64/vscode-policy-watcher.node",
+      "sha": "185fb114f72749c1a29e5faf4e4f36df5c69f44894bb156e9cddb2eb0013eb0e",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "kerberos.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 6,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 6,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 52,
+      "label": "x64/kerberos.node",
+      "sha": "ed47c0be7bdf7e9fa3fe0be2e7ed36b2d6a8b3de45c6f9f73b2b0bb72d840ad6",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "node_sqlite3.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 6,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 6,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 64,
+      "label": "x64/node_sqlite3.node",
+      "sha": "b4a58d952e26847dd0ad582b03f37367d4bed18aed22a5ca9320380fe457aaf5",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "vscode-policy-watcher.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 4,
+      "napiSymbolCount": 43,
+      "label": "x64/vscode-policy-watcher.node",
+      "sha": "730189ee6f6d5c92376ad5e3d4ee25bdbdd24297804ff574ea61752243419b93",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "crypt32-arm64.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "arm64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "arm64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 1,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "arm64",
+      "declaredNapi": null,
+      "declaredMethod": "unrecognised-prologue:00018052c0035fd6",
+      "importFloor": 1,
+      "napiSymbolCount": 37,
+      "label": "dist/crypt32-arm64.node",
+      "sha": "ebffe55f66e9cdf68faa3e5e99a5d260e1dd183b953164ae0bb835116e6d2673",
+      "truth": {
+        "node22": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node24": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        },
+        "node25": {
+          "load": false,
+          "detail": "ERR_DLOPEN_FAILED"
+        }
+      }
+    },
+    {
+      "file": "crypt32.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 8,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 8,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 1,
+      "napiSymbolCount": 37,
+      "label": "dist/crypt32.node",
+      "sha": "c2f7b4ca1efe0ede4cd02d36f82729898fb8c82267b0fe82521e22303c7248d4",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "node.napi.glibc.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 9,
+          "source": "declared"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": 9,
+      "declaredMethod": "mov-eax-imm32-ret",
+      "importFloor": 3,
+      "napiSymbolCount": 71,
+      "label": "win32-x64/node.napi.glibc.node",
+      "sha": "be15e32b21e06c29c37856540e7620f06f69512748ea2ce7241c5defd88eed88",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    },
+    {
+      "file": "node.napi.node",
+      "container": {
+        "format": "pe",
+        "os": "win32",
+        "arch": "x64"
+      },
+      "constraints": [
+        {
+          "kind": "platform",
+          "os": "win32",
+          "arch": "x64",
+          "source": "container=pe"
+        },
+        {
+          "kind": "napi-min",
+          "napi": 3,
+          "source": "import-floor(WEAK)"
+        }
+      ],
+      "class": "n-api",
+      "arch": "x64",
+      "declaredNapi": null,
+      "declaredMethod": "absent",
+      "importFloor": 3,
+      "napiSymbolCount": 70,
+      "label": "win32-x64/node.napi.node",
+      "sha": "2f60702291ce2ca6dbec61947bd28ed98c3c9b563779cef2057c60a0409c77f8",
+      "truth": {
+        "node22": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node24": {
+          "load": true,
+          "detail": "ok"
+        },
+        "node25": {
+          "load": true,
+          "detail": "ok"
+        }
+      }
+    }
+  ],
+  "totals": {
+    "M-static (three-axis, derived)": {
+      "ok": 291,
+      "fn_": 0,
+      "fp": 0,
+      "n": 291,
+      "fnList": [],
+      "fpList": []
+    },
+    "M-no-platform (ABI/napi only, no axis 0)": {
+      "ok": 75,
+      "fn_": 216,
+      "fp": 0,
+      "n": 291,
+      "fnList": [
+        "lib/sharp-linux-x64-0.35.3.node@node22",
+        "lib/sharp-linux-x64-0.35.3.node@node24",
+        "lib/sharp-linux-x64-0.35.3.node@node25",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node22",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node24",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node25",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node22",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node24",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node25",
+        "prebuilds/darwin-x64.node@node22",
+        "prebuilds/darwin-x64.node@node24",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-x64.node@node22",
+        "prebuilds/linux-x64.node@node24",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node22",
+        "prebuilds/linuxmusl-x64.node@node24",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "Release/keytar.node@node22",
+        "Release/keytar.node@node24",
+        "Release/keytar.node@node25",
+        "darwin_arm64/koffi.node@node22",
+        "darwin_arm64/koffi.node@node24",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node22",
+        "darwin_x64/koffi.node@node24",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node22",
+        "freebsd_arm64/koffi.node@node24",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node22",
+        "freebsd_ia32/koffi.node@node24",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node22",
+        "freebsd_x64/koffi.node@node24",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node22",
+        "linux_arm64/koffi.node@node24",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node22",
+        "linux_armhf/koffi.node@node24",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node22",
+        "linux_ia32/koffi.node@node24",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node22",
+        "linux_loong64/koffi.node@node24",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node22",
+        "linux_riscv64d/koffi.node@node24",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node22",
+        "linux_x64/koffi.node@node24",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node22",
+        "musl_arm64/koffi.node@node24",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node22",
+        "musl_x64/koffi.node@node24",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node22",
+        "openbsd_ia32/koffi.node@node24",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node22",
+        "openbsd_x64/koffi.node@node24",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node22",
+        "win32_arm64/koffi.node@node24",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node22",
+        "win32_ia32/koffi.node@node24",
+        "win32_ia32/koffi.node@node25",
+        "x64/onnxruntime_binding.node@node22",
+        "x64/onnxruntime_binding.node@node24",
+        "x64/onnxruntime_binding.node@node25",
+        "rust/wreq-js.darwin-arm64.node@node22",
+        "rust/wreq-js.darwin-arm64.node@node24",
+        "rust/wreq-js.darwin-arm64.node@node25",
+        "rust/wreq-js.darwin-x64.node@node22",
+        "rust/wreq-js.darwin-x64.node@node24",
+        "rust/wreq-js.darwin-x64.node@node25",
+        "rust/wreq-js.linux-arm64-gnu.node@node22",
+        "rust/wreq-js.linux-arm64-gnu.node@node24",
+        "rust/wreq-js.linux-arm64-gnu.node@node25",
+        "rust/wreq-js.linux-arm64-musl.node@node22",
+        "rust/wreq-js.linux-arm64-musl.node@node24",
+        "rust/wreq-js.linux-arm64-musl.node@node25",
+        "rust/wreq-js.linux-x64-gnu.node@node22",
+        "rust/wreq-js.linux-x64-gnu.node@node24",
+        "rust/wreq-js.linux-x64-gnu.node@node25",
+        "rust/wreq-js.linux-x64-musl.node@node22",
+        "rust/wreq-js.linux-x64-musl.node@node24",
+        "rust/wreq-js.linux-x64-musl.node@node25",
+        "prebuilds/darwin-arm64.node@node22",
+        "prebuilds/darwin-arm64.node@node24",
+        "prebuilds/darwin-arm64.node@node25",
+        "prebuilds/darwin-x64.node@node22",
+        "prebuilds/darwin-x64.node@node24",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-arm64.node@node22",
+        "prebuilds/linux-arm64.node@node24",
+        "prebuilds/linux-arm64.node@node25",
+        "prebuilds/linux-x64.node@node22",
+        "prebuilds/linux-x64.node@node24",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-arm64.node@node22",
+        "prebuilds/linuxmusl-arm64.node@node24",
+        "prebuilds/linuxmusl-arm64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node22",
+        "prebuilds/linuxmusl-x64.node@node24",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "prebuilds/win32-arm64.node@node22",
+        "prebuilds/win32-arm64.node@node24",
+        "prebuilds/win32-arm64.node@node25",
+        "darwin_arm64/koffi.node@node22",
+        "darwin_arm64/koffi.node@node24",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node22",
+        "darwin_x64/koffi.node@node24",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node22",
+        "freebsd_arm64/koffi.node@node24",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node22",
+        "freebsd_ia32/koffi.node@node24",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node22",
+        "freebsd_x64/koffi.node@node24",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node22",
+        "linux_arm64/koffi.node@node24",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node22",
+        "linux_armhf/koffi.node@node24",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node22",
+        "linux_ia32/koffi.node@node24",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node22",
+        "linux_loong64/koffi.node@node24",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node22",
+        "linux_riscv64d/koffi.node@node24",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node22",
+        "linux_x64/koffi.node@node24",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node22",
+        "musl_arm64/koffi.node@node24",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node22",
+        "musl_x64/koffi.node@node24",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node22",
+        "openbsd_ia32/koffi.node@node24",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node22",
+        "openbsd_x64/koffi.node@node24",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node22",
+        "win32_arm64/koffi.node@node24",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node22",
+        "win32_ia32/koffi.node@node24",
+        "win32_ia32/koffi.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "x64/onnxruntime_binding.node@node22",
+        "x64/onnxruntime_binding.node@node24",
+        "x64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/kerberos.node@node22",
+        "arm64/kerberos.node@node24",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node22",
+        "arm64/node_sqlite3.node@node24",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node22",
+        "arm64/vscode-policy-watcher.node@node24",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node22",
+        "x64/kerberos.node@node24",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node22",
+        "x64/node_sqlite3.node@node24",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node22",
+        "x64/vscode-policy-watcher.node@node24",
+        "x64/vscode-policy-watcher.node@node25",
+        "arm64/kerberos.node@node22",
+        "arm64/kerberos.node@node24",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node22",
+        "arm64/node_sqlite3.node@node24",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node22",
+        "arm64/vscode-policy-watcher.node@node24",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node22",
+        "x64/kerberos.node@node24",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node22",
+        "x64/node_sqlite3.node@node24",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node22",
+        "x64/vscode-policy-watcher.node@node24",
+        "x64/vscode-policy-watcher.node@node25",
+        "dist/crypt32-arm64.node@node22",
+        "dist/crypt32-arm64.node@node24",
+        "dist/crypt32-arm64.node@node25"
+      ],
+      "fpList": []
+    },
+    "M-import-floor (weak static napi)": {
+      "ok": 288,
+      "fn_": 3,
+      "fp": 0,
+      "n": 291,
+      "fnList": [
+        "native/napi10.node@node22",
+        "prebuilds/win32-x64.node@node22",
+        "prebuilds/win32-x64.node@node22"
+      ],
+      "fpList": []
+    },
+    "M-abi-only (single hash / MVP-SPEC built/<abiKey>)": {
+      "ok": 174,
+      "fn_": 72,
+      "fp": 45,
+      "n": 291,
+      "fnList": [
+        "lib/sharp-linux-x64-0.35.3.node@node25",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node25",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node25",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "Release/keytar.node@node25",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node25",
+        "x64/onnxruntime_binding.node@node25",
+        "rust/wreq-js.darwin-arm64.node@node25",
+        "rust/wreq-js.darwin-x64.node@node25",
+        "rust/wreq-js.linux-arm64-gnu.node@node25",
+        "rust/wreq-js.linux-arm64-musl.node@node25",
+        "rust/wreq-js.linux-x64-gnu.node@node25",
+        "rust/wreq-js.linux-x64-musl.node@node25",
+        "prebuilds/darwin-arm64.node@node25",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-arm64.node@node25",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-arm64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "prebuilds/win32-arm64.node@node25",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node25",
+        "arm64/onnxruntime_binding.node@node25",
+        "x64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node25",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node25",
+        "dist/crypt32-arm64.node@node25"
+      ],
+      "fpList": [
+        "native/napi10.node@node24",
+        "native/napi9.node@node22",
+        "native/napi9.node@node24",
+        "prebuilds/win32-x64.node@node24",
+        "win32_x64/koffi.node@node22",
+        "win32_x64/koffi.node@node24",
+        "rust/wreq-js.win32-x64-msvc.node@node22",
+        "rust/wreq-js.win32-x64-msvc.node@node24",
+        "lib/sharp-win32-x64.node@node22",
+        "lib/sharp-win32-x64.node@node24",
+        "swc-win32-x64-msvc/next-swc.win32-x64-msvc.node@node22",
+        "swc-win32-x64-msvc/next-swc.win32-x64-msvc.node@node24",
+        "ngrok-win32-x64-msvc/ngrok.win32-x64-msvc.node@node22",
+        "ngrok-win32-x64-msvc/ngrok.win32-x64-msvc.node@node24",
+        "watcher-win32-x64/watcher.node@node22",
+        "watcher-win32-x64/watcher.node@node24",
+        "core-win32-x64-msvc/swc.win32-x64-msvc.node@node22",
+        "core-win32-x64-msvc/swc.win32-x64-msvc.node@node24",
+        "prebuilds/win32-x64.node@node24",
+        "Release/keytar.node@node22",
+        "Release/keytar.node@node24",
+        "win32_x64/koffi.node@node22",
+        "win32_x64/koffi.node@node24",
+        "lib/sharp-win32-x64-0.35.3.node@node22",
+        "lib/sharp-win32-x64-0.35.3.node@node24",
+        "x64/onnxruntime_binding.node@node22",
+        "x64/onnxruntime_binding.node@node24",
+        "msgpackr-extract-win32-x64/node.abi115.node@node22",
+        "msgpackr-extract-win32-x64/node.abi115.node@node24",
+        "msgpackr-extract-win32-x64/node.napi.node@node22",
+        "msgpackr-extract-win32-x64/node.napi.node@node24",
+        "x64-win32/audio-capture.node@node22",
+        "x64-win32/audio-capture.node@node24",
+        "x64/kerberos.node@node22",
+        "x64/kerberos.node@node24",
+        "x64/node_sqlite3.node@node22",
+        "x64/node_sqlite3.node@node24",
+        "x64/vscode-policy-watcher.node@node22",
+        "x64/vscode-policy-watcher.node@node24",
+        "dist/crypt32.node@node22",
+        "dist/crypt32.node@node24",
+        "win32-x64/node.napi.glibc.node@node22",
+        "win32-x64/node.napi.glibc.node@node24",
+        "win32-x64/node.napi.node@node22",
+        "win32-x64/node.napi.node@node24"
+      ]
+    },
+    "M-optimistic (npm/pnpm/yarn: assume portable)": {
+      "ok": 70,
+      "fn_": 221,
+      "fp": 0,
+      "n": 291,
+      "fnList": [
+        "native/napi10.node@node22",
+        "native/rawabi141.node@node22",
+        "native/rawabi141.node@node24",
+        "lib/sharp-linux-x64-0.35.3.node@node22",
+        "lib/sharp-linux-x64-0.35.3.node@node24",
+        "lib/sharp-linux-x64-0.35.3.node@node25",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node22",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node24",
+        "ngrok-linux-x64-gnu/ngrok.linux-x64-gnu.node@node25",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node22",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node24",
+        "ngrok-linux-x64-musl/ngrok.linux-x64-musl.node@node25",
+        "prebuilds/darwin-x64.node@node22",
+        "prebuilds/darwin-x64.node@node24",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-x64.node@node22",
+        "prebuilds/linux-x64.node@node24",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node22",
+        "prebuilds/linuxmusl-x64.node@node24",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "prebuilds/win32-x64.node@node22",
+        "Release/keytar.node@node22",
+        "Release/keytar.node@node24",
+        "Release/keytar.node@node25",
+        "darwin_arm64/koffi.node@node22",
+        "darwin_arm64/koffi.node@node24",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node22",
+        "darwin_x64/koffi.node@node24",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node22",
+        "freebsd_arm64/koffi.node@node24",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node22",
+        "freebsd_ia32/koffi.node@node24",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node22",
+        "freebsd_x64/koffi.node@node24",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node22",
+        "linux_arm64/koffi.node@node24",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node22",
+        "linux_armhf/koffi.node@node24",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node22",
+        "linux_ia32/koffi.node@node24",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node22",
+        "linux_loong64/koffi.node@node24",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node22",
+        "linux_riscv64d/koffi.node@node24",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node22",
+        "linux_x64/koffi.node@node24",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node22",
+        "musl_arm64/koffi.node@node24",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node22",
+        "musl_x64/koffi.node@node24",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node22",
+        "openbsd_ia32/koffi.node@node24",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node22",
+        "openbsd_x64/koffi.node@node24",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node22",
+        "win32_arm64/koffi.node@node24",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node22",
+        "win32_ia32/koffi.node@node24",
+        "win32_ia32/koffi.node@node25",
+        "x64/onnxruntime_binding.node@node22",
+        "x64/onnxruntime_binding.node@node24",
+        "x64/onnxruntime_binding.node@node25",
+        "rust/wreq-js.darwin-arm64.node@node22",
+        "rust/wreq-js.darwin-arm64.node@node24",
+        "rust/wreq-js.darwin-arm64.node@node25",
+        "rust/wreq-js.darwin-x64.node@node22",
+        "rust/wreq-js.darwin-x64.node@node24",
+        "rust/wreq-js.darwin-x64.node@node25",
+        "rust/wreq-js.linux-arm64-gnu.node@node22",
+        "rust/wreq-js.linux-arm64-gnu.node@node24",
+        "rust/wreq-js.linux-arm64-gnu.node@node25",
+        "rust/wreq-js.linux-arm64-musl.node@node22",
+        "rust/wreq-js.linux-arm64-musl.node@node24",
+        "rust/wreq-js.linux-arm64-musl.node@node25",
+        "rust/wreq-js.linux-x64-gnu.node@node22",
+        "rust/wreq-js.linux-x64-gnu.node@node24",
+        "rust/wreq-js.linux-x64-gnu.node@node25",
+        "rust/wreq-js.linux-x64-musl.node@node22",
+        "rust/wreq-js.linux-x64-musl.node@node24",
+        "rust/wreq-js.linux-x64-musl.node@node25",
+        "prebuilds/darwin-arm64.node@node22",
+        "prebuilds/darwin-arm64.node@node24",
+        "prebuilds/darwin-arm64.node@node25",
+        "prebuilds/darwin-x64.node@node22",
+        "prebuilds/darwin-x64.node@node24",
+        "prebuilds/darwin-x64.node@node25",
+        "prebuilds/linux-arm64.node@node22",
+        "prebuilds/linux-arm64.node@node24",
+        "prebuilds/linux-arm64.node@node25",
+        "prebuilds/linux-x64.node@node22",
+        "prebuilds/linux-x64.node@node24",
+        "prebuilds/linux-x64.node@node25",
+        "prebuilds/linuxmusl-arm64.node@node22",
+        "prebuilds/linuxmusl-arm64.node@node24",
+        "prebuilds/linuxmusl-arm64.node@node25",
+        "prebuilds/linuxmusl-x64.node@node22",
+        "prebuilds/linuxmusl-x64.node@node24",
+        "prebuilds/linuxmusl-x64.node@node25",
+        "prebuilds/win32-arm64.node@node22",
+        "prebuilds/win32-arm64.node@node24",
+        "prebuilds/win32-arm64.node@node25",
+        "prebuilds/win32-x64.node@node22",
+        "darwin_arm64/koffi.node@node22",
+        "darwin_arm64/koffi.node@node24",
+        "darwin_arm64/koffi.node@node25",
+        "darwin_x64/koffi.node@node22",
+        "darwin_x64/koffi.node@node24",
+        "darwin_x64/koffi.node@node25",
+        "freebsd_arm64/koffi.node@node22",
+        "freebsd_arm64/koffi.node@node24",
+        "freebsd_arm64/koffi.node@node25",
+        "freebsd_ia32/koffi.node@node22",
+        "freebsd_ia32/koffi.node@node24",
+        "freebsd_ia32/koffi.node@node25",
+        "freebsd_x64/koffi.node@node22",
+        "freebsd_x64/koffi.node@node24",
+        "freebsd_x64/koffi.node@node25",
+        "linux_arm64/koffi.node@node22",
+        "linux_arm64/koffi.node@node24",
+        "linux_arm64/koffi.node@node25",
+        "linux_armhf/koffi.node@node22",
+        "linux_armhf/koffi.node@node24",
+        "linux_armhf/koffi.node@node25",
+        "linux_ia32/koffi.node@node22",
+        "linux_ia32/koffi.node@node24",
+        "linux_ia32/koffi.node@node25",
+        "linux_loong64/koffi.node@node22",
+        "linux_loong64/koffi.node@node24",
+        "linux_loong64/koffi.node@node25",
+        "linux_riscv64d/koffi.node@node22",
+        "linux_riscv64d/koffi.node@node24",
+        "linux_riscv64d/koffi.node@node25",
+        "linux_x64/koffi.node@node22",
+        "linux_x64/koffi.node@node24",
+        "linux_x64/koffi.node@node25",
+        "musl_arm64/koffi.node@node22",
+        "musl_arm64/koffi.node@node24",
+        "musl_arm64/koffi.node@node25",
+        "musl_x64/koffi.node@node22",
+        "musl_x64/koffi.node@node24",
+        "musl_x64/koffi.node@node25",
+        "openbsd_ia32/koffi.node@node22",
+        "openbsd_ia32/koffi.node@node24",
+        "openbsd_ia32/koffi.node@node25",
+        "openbsd_x64/koffi.node@node22",
+        "openbsd_x64/koffi.node@node24",
+        "openbsd_x64/koffi.node@node25",
+        "win32_arm64/koffi.node@node22",
+        "win32_arm64/koffi.node@node24",
+        "win32_arm64/koffi.node@node25",
+        "win32_ia32/koffi.node@node22",
+        "win32_ia32/koffi.node@node24",
+        "win32_ia32/koffi.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "x64/onnxruntime_binding.node@node22",
+        "x64/onnxruntime_binding.node@node24",
+        "x64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/onnxruntime_binding.node@node22",
+        "arm64/onnxruntime_binding.node@node24",
+        "arm64/onnxruntime_binding.node@node25",
+        "arm64/kerberos.node@node22",
+        "arm64/kerberos.node@node24",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node22",
+        "arm64/node_sqlite3.node@node24",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node22",
+        "arm64/vscode-policy-watcher.node@node24",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node22",
+        "x64/kerberos.node@node24",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node22",
+        "x64/node_sqlite3.node@node24",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node22",
+        "x64/vscode-policy-watcher.node@node24",
+        "x64/vscode-policy-watcher.node@node25",
+        "arm64/kerberos.node@node22",
+        "arm64/kerberos.node@node24",
+        "arm64/kerberos.node@node25",
+        "arm64/node_sqlite3.node@node22",
+        "arm64/node_sqlite3.node@node24",
+        "arm64/node_sqlite3.node@node25",
+        "arm64/vscode-policy-watcher.node@node22",
+        "arm64/vscode-policy-watcher.node@node24",
+        "arm64/vscode-policy-watcher.node@node25",
+        "x64/kerberos.node@node22",
+        "x64/kerberos.node@node24",
+        "x64/kerberos.node@node25",
+        "x64/node_sqlite3.node@node22",
+        "x64/node_sqlite3.node@node24",
+        "x64/node_sqlite3.node@node25",
+        "x64/vscode-policy-watcher.node@node22",
+        "x64/vscode-policy-watcher.node@node24",
+        "x64/vscode-policy-watcher.node@node25",
+        "dist/crypt32-arm64.node@node22",
+        "dist/crypt32-arm64.node@node24",
+        "dist/crypt32-arm64.node@node25"
+      ],
+      "fpList": []
+    }
+  },
+  "stratified": {
+    "M-static (three-axis, derived)": {
+      "ok": 75,
+      "fn_": 0,
+      "fp": 0,
+      "n": 75
+    },
+    "M-no-platform (ABI/napi only, no axis 0)": {
+      "ok": 75,
+      "fn_": 0,
+      "fp": 0,
+      "n": 75
+    },
+    "M-import-floor (weak static napi)": {
+      "ok": 72,
+      "fn_": 3,
+      "fp": 0,
+      "n": 75
+    },
+    "M-abi-only (single hash / MVP-SPEC built/<abiKey>)": {
+      "ok": 30,
+      "fn_": 0,
+      "fp": 45,
+      "n": 75
+    },
+    "M-optimistic (npm/pnpm/yarn: assume portable)": {
+      "ok": 70,
+      "fn_": 5,
+      "fp": 0,
+      "n": 75
+    }
+  }
+}
