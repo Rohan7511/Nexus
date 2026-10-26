@@ -12,7 +12,7 @@
 
 import path from 'node:path';
 import { scanTree, unexaminedArtifacts } from '../graph/scan.mjs';
-import { graphId } from '../graph/serialize.mjs';
+import { graphId, artifactId, hashJson } from '../graph/serialize.mjs';
 import { analyzeTree } from '../compat/analyze-tree.mjs';
 import { resolveTree } from '../compat/resolve.mjs';
 import { targetRuntime, runtimeLabel } from '../runtime/probe.mjs';
@@ -30,24 +30,38 @@ export function evaluate(opts) {
   //
   // They were one flag, which meant the only way to distrust the cache was also to
   // change what counts as loadable. `run` needs the first without the second: it is a
-  // safety gate, and a gate that trusts an unauthenticated sidecar file is not a
-  // gate. The compat file's graphId is cross-checked against the lock, but that
-  // covers the TREE, not the constraint payload -- editing a napi-min down to 1 while
-  // leaving graphId intact produced a wrong OK, which is a segfault under `run`.
-  // Re-deriving is affordable because the analysis is cached in the store by
-  // (sha, derivationKey), so verification is a scan plus cache hits.
+  // safety gate, so it derives from bytes even though a v2 lock can detect ordinary
+  // sidecar-only and artifact-only edits. Re-deriving is affordable because the
+  // analysis is cached in the store by (sha, derivationKey), so verification is a
+  // scan plus cache hits.
   const verify = !!(opts.strict || opts.verify);
 
-  let artifacts, sites, source;
+  let artifacts, sites, source, cacheIssue = null;
   const compatPath = findLock(dir, COMPAT);
   if (compatPath && !verify) {
     const compat = readJson(compatPath);
     const lockPath = findLock(dir, LOCK);
-    if (lockPath && readJson(lockPath).graphId !== compat.graphId) {
+    const lock = lockPath ? readJson(lockPath) : null;
+    if (lock && lock.graphId !== compat.graphId) {
       throw new Error(`${LOCK} and ${COMPAT} disagree on graph identity; re-run ingest`);
     }
-    ({ artifacts, sites } = compat);
-    source = COMPAT;
+    if (!lock?.compatId || !lock?.artifactId) {
+      // A v1 sidecar has no independently stored content binding.  It is still
+      // useful as input to an explicit --verify, but never as cached evidence.
+      cacheIssue = `${COMPAT} has no integrity binding`;
+    } else if (lock.compatId !== hashJson(compat)) {
+      throw new Error(`${COMPAT} content does not match ${LOCK}; re-run ingest or use --verify`);
+    } else {
+      // Hash only native/shared artifacts.  This catches a changed, added, or
+      // removed covered byte without turning an ordinary cached check into a
+      // whole-tree SHA-256 scan.
+      const currentArtifacts = artifactId(scanTree(dir, { hashes: 'artifacts' }).packages);
+      if (lock.artifactId !== currentArtifacts) {
+        throw new Error(`covered artifact bytes do not match ${LOCK}; re-run ingest or use --verify`);
+      }
+      ({ artifacts, sites } = compat);
+      source = COMPAT;
+    }
   } else {
     // Hash only the artifacts unless a graph identity is actually needed. The verdict
     // never depends on the hash of a .js file -- only the artifact hashes, which key
@@ -71,6 +85,16 @@ export function evaluate(opts) {
                  `${String(recorded).slice(0, 12)}, tree is ${live.slice(0, 12)})`;
       }
     }
+  }
+
+  if (!source) {
+    const store = openStore(opts);
+    const napi = napiMapFor(store);
+    const scan = scanTree(dir, { hashes: 'all' });
+    ({ artifacts, sites } = analyzeTree(scan, {
+      napiMap: napi.map, defaultNapi: napi.defaultNapi, derivKey: napi.key, store,
+    }));
+    source = `live scan (${cacheIssue})`;
   }
 
   const res = resolveTree(sites, artifacts, rt, { strict: !!opts.strict });

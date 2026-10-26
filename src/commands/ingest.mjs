@@ -13,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { scanTree } from '../graph/scan.mjs';
-import { graphId, canonicalFile } from '../graph/serialize.mjs';
+import { graphId, artifactId, canonicalFile, hashJson } from '../graph/serialize.mjs';
 import { analyzeTree } from '../compat/analyze-tree.mjs';
 import { LOCK, COMPAT, openStore, napiMapFor, fmtBytes, out } from './common.mjs';
 
@@ -39,24 +39,28 @@ export function cmdIngest(opts) {
   });
   const gid = graphId(scan.packages);
 
-  const lock = {
-    lockfileVersion: 1,
-    graphId: gid,
-    packages: scan.packages.map((p) => ({
-      name: p.name, version: p.version, path: p.path,
-      sensitive: p.sensitive, sensitivity: p.sensitivity,
-      files: p.files,
-    })),
-  };
-
   const compat = {
-    compatVersion: 1,
+    compatVersion: 2,
     graphId: gid,
     // Provenance, not identity: recorded so a later disagreement is diagnosable.
     derivedWith: { napiMapSource: napi.source, napiMapSymbols: napi.count,
                    defaultNapi: napi.defaultNapi, key: napi.key },
     artifacts,
     sites,
+  };
+  // Hashes are not signatures: someone who can rewrite both files can recompute
+  // them.  They do make a sidecar-only edit, or an artifact-byte edit, detectable
+  // without re-deriving every constraint.  `run` still re-derives as the gate.
+  const lock = {
+    lockfileVersion: 2,
+    graphId: gid,
+    artifactId: artifactId(scan.packages),
+    compatId: hashJson(compat),
+    packages: scan.packages.map((p) => ({
+      name: p.name, version: p.version, path: p.path,
+      sensitive: p.sensitive, sensitivity: p.sensitivity,
+      files: p.files,
+    })),
   };
 
   fs.writeFileSync(path.join(dir, LOCK), canonicalFile(lock));

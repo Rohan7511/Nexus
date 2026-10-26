@@ -89,10 +89,10 @@ Two options govern how much the tool trusts, and they are separate on purpose:
 | `--strict` | *additionally* refuse artifacts whose requirement axis is asserted from the absence of Node linkage rather than derived (implies `--verify`) |
 
 They were one flag until [E006](../experiments/e006-adversarial-review.md), which is a defect: a gate
-that wants to stop trusting an unauthenticated sidecar file should not have to adopt a stricter loading
-policy to do it. `run` implies `--verify` and deliberately not `--strict` — distrusting a cache is a
-gate's job, choosing a policy is the caller's. Re-deriving is affordable only because analyses are
-content-cached, which is why the cost work in E006 had to land first.
+that wants to derive from bytes should not have to adopt a stricter loading policy to do it. `run`
+implies `--verify` and deliberately not `--strict` -- distrust of cached evidence is a gate's job,
+choosing a policy is the caller's. Re-deriving is affordable only because analyses are content-cached,
+which is why the cost work in E006 had to land first.
 
 `ingest` rather than a registry client: the project rules bar a full registry client unless necessary,
 and it is not necessary to demonstrate the thesis. Resolution and fetching are SUBORDINATE; ingest
@@ -147,16 +147,11 @@ The red-team's former top risk — **libc flavour not derived** — is **closed*
 pairs separated), and shows up in product output as `linux/x64/glibc` and `linux/x64/musl` being
 distinct platforms.
 
-The gating risk has narrowed from two container formats to one. [E005](../experiments/e005-elf-requirement.md)
-derived the ELF requirement axis across six architectures — 37 of 48 artifacts read a declared value,
-the remaining 11 floor at the header-derived `NODE_API_DEFAULT_MODULE_API_VERSION`, and **none** is left
-`unknown` — validated with no Linux host by cross-architecture agreement (koffi declares 8 identically
-across 13 builds and 6 architectures) plus cross-flavour agreement with the PE values E001 measured
-against 291 real loads. **Mach-O is now the only format whose requirement axis is underived**, so Nexus
-is *sound but unusable* on macOS alone. Two secondary gaps remain: minimum glibc *version* is still not
-derived, which is the one known false-negative hole and is Linux-only; and raw-V8 **ELF** addons refuse
-by construction, because the local corpus contains none and an unvalidated struct reader that returns a
-plausible number is worse than a refusal.
+The gating risk is no longer a single missing container parser. [E005](../experiments/e005-elf-requirement.md)
+derived the ELF N-API requirement axis across six architectures; E007 and E008 add Mach-O and raw-V8
+ELF derivation evidence in their recorded corpora. In this checkout, those recorded corpora are not fully
+present, and no Linux or macOS loading run has been observed. Minimum glibc *version* is still not
+derived, which is the known Linux false-negative hole.
 
 Nexus can now answer a question about a runtime that is not present, via `--target
 <os>/<arch>[/<libc>]:<abi>:<napi>`. This is not a convenience feature — it is a direct consequence of the
@@ -184,11 +179,12 @@ The lesson generalises past this codebase: the zero-false-negative posture canno
 artifact never examined is a false negative just as surely as one misjudged, and the honest response to a
 gap the tool cannot close is to report the verdict's *scope* rather than let the caller assume it.
 
-Two carried risks were added rather than closed by this work: a plain `check` still trusts an
-unauthenticated compat file (`--verify` and `run` do not), and package exclusion rests on
-`os`/`cpu`/`libc` metadata — the one point where a verdict does not rest on derived bytes, bounded by the
-fact that it can only turn a refusal into a reported exclusion and that the failure it could mask is a
-catchable `ERR_DLOPEN_FAILED` rather than a segfault.
+Two carried risks were added rather than closed by this work: v2 locks bind `nexus-compat.json` to a
+canonical digest and the covered artifact bytes, but this is not a signature against a writer who can
+edit both files; and package exclusion rests on `os`/`cpu`/`libc` metadata -- the one point where a
+verdict does not rest on derived bytes, bounded by the fact that it can only turn a refusal into a
+reported exclusion and that the failure it could mask is a catchable `ERR_DLOPEN_FAILED` rather than a
+segfault.
 
 **Explicitly not in the POC:** registry client, dependency resolution, hook-based resolution,
 environment activation, GUI, Node version management. `rebuild --execute` is also out of scope — this

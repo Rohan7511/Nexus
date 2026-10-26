@@ -29,7 +29,7 @@ options
   --store <dir>     store root (default $NEXUS_STORE or ~/.nexus/store)
   --verify          ignore nexus-compat.json and re-derive constraints from the
                     artifact bytes (implied by \`nexus run\`, which is a gate and
-                    must not trust an unauthenticated sidecar file)
+                    always verifies from bytes)
   --strict          also refuse artifacts whose requirement axis is asserted
                     from the absence of Node linkage rather than derived
                     (implies --verify)

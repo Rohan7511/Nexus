@@ -230,14 +230,15 @@ prebuild pipelines use, including an OpenBSD build whose retguard inserts ~26 by
 immediate and the `ret`. Residual assumption: an unseen toolchain or optimisation level could still emit
 an unrecognised shape, which degrades to `unknown` → refuse (safe, costly), not to a wrong answer.
 
-**[UA] Raw-V8 ELF is not derived at all.** M4's `node_module` struct reader is validated on PE only;
-the local corpus contains **zero** raw-V8 ELF addons, so there is no evidence to validate an ELF
-version against. Such artifacts return `unknown` and refuse. Shipping the parser anyway would mean
-publishing an unvalidated number as a derived fact.
+**[LE] Raw-V8 ELF is derived by a validated `node_module`-struct read.** E008 found 44 labelled
+raw-V8 ELF artifacts across glibc/musl and x64/arm64. The reader recovered one exact ABI from each;
+44/44 agree with labels, 13/13 multi-build groups agree, and 44/44 agree with comparable PE/Mach-O
+reads. Missing or ambiguous structs remain `unknown` and refuse. This is static-parser evidence only;
+Linux loading remains unobserved.
 
-**[UA] Mach-O requirement axis is not derived.** With ELF closed by E005, Mach-O is the only container
-format where an N-API artifact's requirement is still `unknown`. Sound, but it makes the tool unusable
-on macOS.
+**[LE] Mach-O's requirement axis is derived for thin and fat images.** E007 reads N-API and raw-V8
+requirements per slice and requires all universal slices to agree. A Mach-O reader gap (notably raw-V8
+chained fixups) is still an explicit `unknown`, never a guess. macOS loading remains unobserved.
 
 **[UA] Mach-O fat binaries.** Not parsed for architecture (`arm64/kerberos.node` → `darwin/?`).
 Refused on this host via the OS check.

@@ -79,9 +79,11 @@ trusting an unauthenticated file.
 `nexus run` implies `--verify` and deliberately **not** `--strict` — distrusting a cache is a gate's job,
 choosing a stricter policy is the caller's.
 
-Verified: `run` on the forged tree refuses (exit 1); `check --verify` refuses and names the real
-constraint (`N-API >= 10`); plain `check` still trusts the cache, which is now a documented boundary
-rather than an unexamined one. Cost of the verified gate: 0.327–0.817 s.
+Verified at the time: `run` on the forged tree refuses (exit 1); `check --verify` refuses and names the
+real constraint (`N-API >= 10`). Phase 8 narrows the trust boundary further: a v2 lock binds the compat
+payload and covered artifact bytes, so normal `check` rejects independent sidecar or artifact edits.
+This remains content binding rather than authentication against a writer who can edit both files. Cost
+of the verified gate: 0.327–0.817 s.
 
 ## Attack 3 — scope: "0 packages with native artifacts — OK" for a tree holding 17 addons
 
@@ -225,8 +227,10 @@ false negative just as surely as one it misjudged, and two of the five defects w
 1. **Attack 5's fix rests on metadata.** The one place a verdict does not rest on derived bytes. Bounded:
    it can only ever turn a refusal into an exclusion, it is reported separately, and the failure it could
    mask is catchable rather than fatal.
-2. **Plain `check` still trusts `nexus-compat.json`.** `--verify` and `run` do not. Documented boundary,
-   not a closed hole; a signed or content-addressed compat file would close it properly.
+2. **Phase 8 update — bound sidecars.** A v2 lock now contains a canonical compat digest and a covered
+   artifact-set digest. Plain `check` rejects a changed sidecar or covered artifact; old unbound files
+   are live-scanned. This is content binding, not a signature: someone able to rewrite both files has
+   no external trust boundary, so `run` continues to verify from bytes.
 3. **Artifacts outside `node_modules` are counted, not analyzed.** The caller is told the verdict's scope
    and pointed at `nexus analyze`, which is honest but not complete.
 4. **One host.** Every measurement is `win32/x64`. The Linux and macOS *loading* direction remains

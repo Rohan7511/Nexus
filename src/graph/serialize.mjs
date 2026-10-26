@@ -7,6 +7,8 @@
 
 import crypto from 'node:crypto';
 
+const isCoveredArtifact = (p) => /\.(node|dll|so|dylib)$/i.test(p);
+
 /** Canonical JSON: recursively key-sorted, no incidental whitespace variation. */
 export function canonical(value) {
   return JSON.stringify(sortDeep(value));
@@ -65,4 +67,22 @@ export function graphId(packages) {
     .map((p) => ({ name: p.name, version: p.version, path: p.path, files: p.files }))
     .sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
   return hashJson({ v: 1, packages: norm });
+}
+
+/**
+ * Identity of precisely the bytes a compatibility verdict covers.  Unlike graphId,
+ * this deliberately permits an artifacts-only scan: it is used to validate a cached
+ * compat sidecar without hashing unrelated JavaScript files.
+ */
+export function artifactId(packages) {
+  const artifacts = [];
+  for (const p of packages) {
+    for (const f of p.files ?? []) {
+      if (!isCoveredArtifact(f.path)) continue;
+      if (f.sha == null) throw new Error(`artifactId: '${p.path}/${f.path}' has no hash`);
+      artifacts.push({ file: `${p.path}/${f.path}`, sha: f.sha, size: f.size });
+    }
+  }
+  artifacts.sort((a, b) => a.file.localeCompare(b.file));
+  return hashJson({ v: 1, artifacts });
 }

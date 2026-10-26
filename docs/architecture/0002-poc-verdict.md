@@ -98,7 +98,10 @@ What is still carried, and what is not:
 2. **Minimum glibc version** from `GLIBC_2.xx` tags in `.dynstr`. The one known false-negative hole, and
    Linux-only. Still open.
 3. **Analyze** artifacts outside `node_modules` rather than only counting them. Still open.
-4. **Authenticate `nexus-compat.json`** so a plain `check` need not trust it. Still open.
+4. **Bind `nexus-compat.json` to the lock and covered artifact bytes.** Complete for independent
+   sidecar/artifact edits: `compatId` and `artifactId` in the v2 lock make normal `check` reject either
+   edit. This is deliberately not called a signature: a writer who can change lock and sidecar has no
+   external trust boundary to authenticate against, and `run` continues to verify from bytes.
 
 ### What this verdict does not claim
 

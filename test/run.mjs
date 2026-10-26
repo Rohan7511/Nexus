@@ -13,7 +13,7 @@ import { readMacho } from '../src/artifact/macho.mjs';
 import { readContainer } from '../src/artifact/container.mjs';
 import { check, decide } from '../src/compat/decide.mjs';
 import { resolveTree } from '../src/compat/resolve.mjs';
-import { canonical, graphId, sha256 } from '../src/graph/serialize.mjs';
+import { canonical, graphId, artifactId, hashJson, sha256 } from '../src/graph/serialize.mjs';
 import { Store } from '../src/store/cas.mjs';
 import { scanTree, isNativeObject, isSharedLibrary, unexaminedArtifacts } from '../src/graph/scan.mjs';
 import { currentRuntime, parseTarget, targetRuntime } from '../src/runtime/probe.mjs';
@@ -1019,10 +1019,10 @@ test('a probed runtime and a stated target cannot both be given', () => {
 });
 
 // ------------------------------------------------- trusting the compat file
-// A cached nexus-compat.json is a convenience, not evidence. Its graphId is
-// cross-checked against the lock, but that covers the TREE, not the constraint
-// payload -- so editing a napi-min down leaves a file that passes every structural
-// check and yields a wrong OK. Under `run` that is a segfault, so `run` re-derives.
+// A cached nexus-compat.json is valid only when its canonical bytes and the exact
+// native/shared artifact byte set both match the separately written lock. That is
+// integrity binding, not a signature: changing both files remains outside its trust
+// boundary, which is why `run` still re-derives from artifact bytes.
 function trustFixture() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nexus-trust-'));
   const dir = path.join(root, 'node_modules', 'pkg');
@@ -1034,34 +1034,72 @@ function trustFixture() {
   );
   fs.writeFileSync(path.join(dir, 'x.node'), art);
   const sha = sha256(art);
-  // A structurally perfect compat file that lies about the requirement.
-  const forged = {
-    compatVersion: 1,
-    graphId: 'f'.repeat(64),
+  const scan = scanTree(root);
+  const gid = graphId(scan.packages);
+  const compat = {
+    compatVersion: 2,
+    graphId: gid,
     artifacts: { [sha]: { class: 'n-api', format: 'elf', constraints: [
       { kind: 'platform', os: 'linux', arch: 'x64', libc: 'glibc' },
-      { kind: 'napi-min', napi: 1, source: 'declared' },      // the lie: really 10
+      { kind: 'napi-min', napi: 10, source: 'declared' },
     ] } },
     sites: [{ package: 'pkg', version: '1.0.0', pkgPath: 'node_modules/pkg',
               file: 'node_modules/pkg/x.node', sha, size: art.length, addon: true }],
   };
-  fs.writeFileSync(path.join(root, 'nexus-compat.json'), JSON.stringify(forged));
-  return { root, store: fs.mkdtempSync(path.join(os.tmpdir(), 'nexus-trust-store-')) };
+  const lock = { lockfileVersion: 2, graphId: gid, artifactId: artifactId(scan.packages),
+                 compatId: hashJson(compat) };
+  fs.writeFileSync(path.join(root, 'nexus-lock.json'), JSON.stringify(lock));
+  fs.writeFileSync(path.join(root, 'nexus-compat.json'), JSON.stringify(compat));
+  return { root, store: fs.mkdtempSync(path.join(os.tmpdir(), 'nexus-trust-store-')), art };
 }
 
-test('a forged compat file is trusted by default -- and that is the whole risk', () => {
+function forgeCompat(root) {
+  const p = path.join(root, 'nexus-compat.json');
+  const compat = JSON.parse(fs.readFileSync(p, 'utf8'));
+  Object.values(compat.artifacts)[0].constraints.find((c) => c.kind === 'napi-min').napi = 1;
+  fs.writeFileSync(p, JSON.stringify(compat));
+}
+
+test('a bound compat file is usable without re-deriving', () => {
   const { root, store } = trustFixture();
-  // Documenting the boundary, not endorsing it: with no lock to disagree with, the
-  // cached answer is taken as given. napi 9 < the real requirement of 10.
-  const r = evaluate({ _: [root], target: 'linux/x64/glibc:137:9', store });
+  const r = evaluate({ _: [root], target: 'linux/x64/glibc:137:10', store });
   assert(r.source === 'nexus-compat.json', `expected the cache to be used, got ${r.source}`);
-  assert(r.ok === true, 'the forgery was supposed to succeed on this path');
+  assert(r.ok === true, 'the bound cache should preserve the derived answer');
   fs.rmSync(root, { recursive: true, force: true });
   fs.rmSync(store, { recursive: true, force: true });
 });
 
-test('--verify re-derives from bytes and catches the forgery', () => {
+test('a forged compat payload is rejected before it can produce an OK', () => {
   const { root, store } = trustFixture();
+  forgeCompat(root);
+  let threw = false;
+  try { evaluate({ _: [root], target: 'linux/x64/glibc:137:9', store }); } catch (e) {
+    threw = /content does not match/.test(e.message);
+  }
+  assert(threw, 'a sidecar-only edit was not detected');
+  fs.rmSync(root, { recursive: true, force: true });
+  fs.rmSync(store, { recursive: true, force: true });
+});
+
+test('a covered artifact byte change is rejected before cached constraints are used', () => {
+  const { root, store } = trustFixture();
+  const p = path.join(root, 'node_modules', 'pkg', 'x.node');
+  fs.writeFileSync(p, synthElf(
+    [{ name: GETVER, defined: true }, { name: 'napi_create_string_utf8', defined: false }],
+    Buffer.from([0xb8, 0x01, 0, 0, 0, 0xc3]),
+  ));
+  let threw = false;
+  try { evaluate({ _: [root], target: 'linux/x64/glibc:137:10', store }); } catch (e) {
+    threw = /covered artifact bytes/.test(e.message);
+  }
+  assert(threw, 'a changed artifact was accepted using its old cached constraints');
+  fs.rmSync(root, { recursive: true, force: true });
+  fs.rmSync(store, { recursive: true, force: true });
+});
+
+test('--verify re-derives from bytes and catches a forged sidecar', () => {
+  const { root, store } = trustFixture();
+  forgeCompat(root);
   const r = evaluate({ _: [root], target: 'linux/x64/glibc:137:9', store, verify: true });
   assert(r.source.startsWith('live scan'), `expected a live scan, got ${r.source}`);
   assert(r.ok === false, 'a forged napi-min survived --verify');

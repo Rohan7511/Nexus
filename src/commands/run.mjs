@@ -22,11 +22,11 @@ export function cmdRun(opts) {
                     'use `nexus check --target` to ask the question, or --runtime <exe> to run it');
   }
 
-  // verify, not strict. `run` is a safety gate, so it must not trust an
-  // unauthenticated nexus-compat.json: a forged constraint there reads as OK and then
-  // segfaults. It deliberately does NOT imply --strict, which would additionally
-  // refuse artifacts whose requirement is asserted rather than derived -- that is a
-  // policy choice for the caller, not something a gate should silently impose.
+  // verify, not strict. `run` is a safety gate, so it derives from bytes even
+  // though v2 sidecars are bound against independent sidecar/artifact edits. It
+  // deliberately does NOT imply --strict, which would additionally refuse artifacts
+  // whose requirement is asserted rather than derived -- that is a policy choice for
+  // the caller, not something a gate should silently impose.
   const { rt, ok, packages, counts, unexamined } = evaluate({ ...opts, verify: true });
   if (!ok) {
     const broken = packages.filter((p) => !p.ok);

@@ -77,9 +77,9 @@ and it was invisible in the headline number.
 genuine same-arch gnu/musl pairs separated. The platform constraint is now `{os, arch, libc}`.
 
 **[UA] What remains open** is the *loading* direction: that a musl artifact genuinely fails on a glibc
-host, and that a correctly-derived Linux artifact genuinely loads, needs a Linux host. Also
-undreived: minimum glibc version from `GLIBC_2.xx` version tags. So B's accuracy on a Linux host is
-still formally unmeasured — but it is no longer *knowingly wrong*.
+host, and that a correctly-derived Linux artifact genuinely loads, needs a Linux host. Also underived:
+minimum glibc version from `GLIBC_2.xx` version tags. So B's accuracy on a Linux host is still formally
+unmeasured, and it still has a known Linux false-negative hole.
 
 **Attack 2 — a classification gap converts silently into over-invalidation. [LE]** Proven, not
 hypothetical: parsing only PE import directory 1 made `keytar.node` and `onnxruntime_binding.node`
@@ -258,43 +258,30 @@ anything.
 
 ### Carried risks, ranked
 
-0. **Requirement axis is derived for PE and ELF, not Mach-O.** Mach-O N-API artifacts still receive an
-   explicit `unknown` constraint and are therefore refused, so Nexus remains safe but *unusable* on
-   macOS. Not a soundness risk — a viability one, and now the gating item for a single platform rather
-   than two. Narrowed by [E005](../experiments/e005-elf-requirement.md), which derived the ELF
-   requirement across six architectures (37/48 declared, 11 floored at the header default, 0 unknown)
-   and validated it without a Linux host.
-0b. **Raw-V8 ELF refuses by construction.** The local corpus contains zero raw-V8 ELF addons, so the
-   `node_module` struct reader that works on PE has no ELF validation evidence and is not shipped for
-   ELF. Sound (it refuses), but a real coverage gap: such addons exist in the wild. Closing it needs a
-   corpus, not more code.
+0. **Minimum glibc version is not derived.** An ELF built against a newer glibc can pass on an older
+   glibc host; this is the known Linux false-negative hole and must not be described as closed.
 1. **False-positive rate is a function of parser coverage** (Attack 2 vs B). Degrades safely toward
-   refusal, but silently erodes the precision advantage that justifies the whole approach. Now the top
-   risk, since the libc hole is closed.
+   refusal, but silently erodes the precision advantage that justifies the whole approach.
 2. **Loading direction unvalidated off this host.** E003 proves constraints are *computed* correctly for
    Linux/FreeBSD/OpenBSD artifacts, and E005 proves the *requirement* is too — via cross-architecture
    agreement and cross-flavour agreement with E001's measured PE loads. That the *comparison* against a
    live non-Windows runtime is complete is still unmeasured. Needs a Linux host. `--target` lets the
    question be asked from here, which is not the same as answering it by observation.
-3. **Minimum glibc version not derived.** `GLIBC_2.xx` tags are available in `.dynstr` but unused, so an
-   artifact built against a newer glibc than the host is currently accepted. This is the one known
-   *false-negative* hole, and it is Linux-only.
-4. **Sensitivity predicate too narrow** (Attack 1 vs D) — install scripts and `binding.gyp` packages.
-5. **Non-`.node` artifacts unexamined** (Attack 3 vs B) — bundled shared libraries, WASM, `.bin`
+3. **Sensitivity predicate too narrow** (Attack 1 vs D) -- install scripts and `binding.gyp` packages.
+4. **Non-`.node` artifacts unexamined** (Attack 3 vs B) — bundled shared libraries, WASM, `.bin`
    executables. Partially addressed: bundled shared libraries now derive a platform constraint plus an
    explicit `no-requirement` requirement axis, refused under `--strict`.
-6. **`header-default(WEAK)` is a floor from what Node assumes, not from the artifact.** For a
+5. **`header-default(WEAK)` is a floor from what Node assumes, not from the artifact.** For a
    non-declaring addon the requirement is `max(importFloor, NODE_API_DEFAULT_MODULE_API_VERSION)`. That
    is the right answer to the *load* question — it is the version Node hands the module — but it is read
    from the headers of *one* Node install, so a derivation performed against different headers is a
    different answer. Hence the derivation key (below).
-7. **The scope of a verdict is part of its meaning, and two of three scope holes are only *reported*, not
-   closed.** [E006](../experiments/e006-adversarial-review.md) found that an artifact the tool never
-   examined is a false negative just as surely as one it misjudged. Artifacts outside `node_modules` are
-   now counted and named (19 of 21 in one measured extension corpus) but not analyzed, and a plain
-   `check` still trusts an unauthenticated `nexus-compat.json`. Both are surfaced to the caller rather
-   than left to assumption; neither is eliminated.
-8. **Package exclusion rests on metadata, the one place a verdict does not rest on bytes** (E006
+6. **The scope of a verdict is part of its meaning.** [E006](../experiments/e006-adversarial-review.md)
+   found that an artifact the tool never examined is a false negative just as surely as one it misjudged.
+   Artifacts outside `node_modules` are counted and named but not analyzed. A cached sidecar is now
+   bound to the lock and current covered artifact hashes; this detects sidecar-only or artifact-only
+   edits, but it is not a signature and cannot defend an attacker who can rewrite both files.
+7. **Package exclusion rests on metadata, the one place a verdict does not rest on bytes** (E006
    amendment above). `os`/`cpu`/`libc` gate npm's *installer*, not Node's *loader*, so a program that
    directly requires an excluded package anyway will fail where Nexus reported nothing wrong. Bounded:
    the failure is a wrong-container `ERR_DLOPEN_FAILED`, catchable, never the silent segfault this
@@ -316,7 +303,8 @@ and skipped by the unexamined report as the scan's territory. On one real instal
 Both walks are now complementary by construction. See
 [E006](../experiments/e006-adversarial-review.md) attack 4.
 
-**Closed:** `nexus run` trusted a cached `nexus-compat.json` whose constraint payload nothing
-authenticates. Editing a `napi-min` down while leaving `graphId` intact produced a wrong OK — and under
-`run`, a segfault. Cache-distrust is now `--verify`, separate from the policy choice `--strict`, and
-`run` implies the former only. See [E006](../experiments/e006-adversarial-review.md) attack 2.
+**Closed (bounded):** `nexus-compat.json` is canonically hashed into `nexus-lock.json`, and the lock
+also records an identity over the current native/shared artifact sites and hashes. Normal `check`
+rejects a changed sidecar or changed/added/removed covered artifact before cached constraints are used;
+legacy unbound sidecars are re-derived. This is integrity binding, not authentication against a writer
+who can edit both files. `run` still implies `--verify` and derives from bytes.
